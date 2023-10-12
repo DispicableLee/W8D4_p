@@ -37,12 +37,18 @@ Function.prototype.myCurry = function(numArgs){
         argArray.push(arg)
         if(argArray.length===argLength){
             console.log(argArray)
-            func.apply(this, argArray)
+            return func.apply(this, argArray)
+            // return func(...argArray)
         }else{
             return curry
         }
     }
-}   
+}
 
-const sum = continuousAdd.myCurry(3)
+
+function add(num1, num2, num3){
+    return num1 + num2 + num3
+}
+
+const sum = add.myCurry(3)
 console.log(sum(1)(2)(3)) 
