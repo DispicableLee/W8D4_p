@@ -1,17 +1,12 @@
 function sum(num){
-    const args = []
-    return function curryAdd(num){
-        args.push(num)
-        console.log(args.reduce((acc, el)=> acc+el))
-        
-        return curryAdd
-    }
+    let args = Array.from(arguments);
+    return args.reduce((acc,el) => acc + el);
 }
 
-const calcA = sum()
+console.log(sum(1, 2, 3, 4, 5))
 
-console.log(calcA(1))
-console.log(calcA(1))
-console.log(calcA(2))
+
+
+
 
 
