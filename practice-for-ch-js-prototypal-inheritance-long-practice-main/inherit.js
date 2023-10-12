@@ -1,5 +1,4 @@
 Function.prototype.inherits = function(parent){
-    
     function Surrogate(){};
 
     Surrogate.prototype = parent.prototype;
@@ -9,21 +8,40 @@ Function.prototype.inherits = function(parent){
 
 
 function MovingObject () {};
-
 MovingObject.prototype.sayHi = function(){
-    console.log("hi");
+    return console.log("hi");
 }
+
 
 function Ship (name) {
     this.name = name
 }
 
-const boat = new Ship("Boaty McBoatface")
-Ship.inherits(MovingObject);
-console.log(boat)
 
-console.log(boat.sayHi())
+Ship.inherits(MovingObject);
+Ship.prototype.sayBye = function() {
+    return console.log("bye")
+}
+const boat = new Ship("Boaty McBoatface")
+
+// console.log(boat.__proto__)
+// console.log(boat.sayHi())
+console.log(boat.sayBye())
+
+//how can we create functions that instances of the Ship class can access and other classes cannot 
+
+
 
 
 function Asteroid () {}
 Asteroid.inherits(MovingObject);
+
+const comet = new Asteroid()
+// console.log(comet.sayBye())
+
+console.log(MovingObject.prototype)
+console.log(Ship.prototype)
+
+
+
+
